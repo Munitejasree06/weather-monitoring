@@ -1,0 +1,185 @@
+<!-- templates/dashboard.html -->
+{% extends "base.html" %}
+{% block content %}
+<div class="container mx-auto px-4 py-8 bg-gradient-to-r from-teal-100 to-purple-100 rounded-lg shadow-lg">
+    <h1 class="text-4xl font-bold text-center text-gray-700 mb-8">Weather Monitor</h1>
+    
+    <!-- Custom City Search -->
+    <div class="max-w-md mx-auto mb-8">
+        <div class="flex gap-2">
+            <input type="text" 
+                   id="custom-city" 
+                   placeholder="Enter city name..." 
+                   class="flex-1 p-2 text-gray-700 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+            <button onclick="searchCustomCity()" 
+                    class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-colors">
+                Search
+            </button>
+        </div>
+        <div id="search-error" class="text-red-500 text-sm mt-2 hidden"></div>
+    </div>
+    
+    <!-- Metro Buttons -->
+    <div class="flex flex-wrap justify-center gap-4 mb-8">
+        <button onclick="showWeather('Delhi')" class="metro-btn">Delhi</button>
+        <button onclick="showWeather('Mumbai')" class="metro-btn">Mumbai</button>
+        <button onclick="showWeather('Chennai')" class="metro-btn">Chennai</button>
+        <button onclick="showWeather('Bangalore')" class="metro-btn">Bangalore</button>
+        <button onclick="showWeather('Kolkata')" class="metro-btn">Kolkata</button>
+        <button onclick="showWeather('Hyderabad')" class="metro-btn">Hyderabad</button>
+    </div>
+    
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="hidden">
+        <div class="flex justify-center items-center">
+            <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-teal-500"></div>
+        </div>
+    </div>
+    
+    <!-- Weather Display Section -->
+    <div id="weather-display" class="max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6 hidden">
+        <div class="flex justify-between items-start mb-6">
+            <h2 id="selected-city" class="text-3xl font-bold text-gray-700"></h2>
+            <img id="weather-icon" src="" alt="weather icon" class="w-16 h-16">
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="weather-detail">
+                <h3>Weather Condition</h3>
+                <p id="weather-condition"></p>
+            </div>
+            
+            <div class="weather-detail">
+                <h3>Temperature</h3>
+                <p id="temperature"></p>
+            </div>
+            
+            <div class="weather-detail">
+                <h3>Feels Like</h3>
+                <p id="feels-like"></p>
+            </div>
+            
+            <div class="weather-detail">
+                <h3>Humidity</h3>
+                <p id="humidity"></p>
+            </div>
+            
+            <div class="weather-detail">
+                <h3>Wind Speed</h3>
+                <p id="wind-speed"></p>
+            </div>
+            
+            <div class="weather-detail">
+                <h3>Last Updated</h3>
+                <p id="last-updated"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alerts Section -->
+    <div class="mt-8">
+        <h2 class="text-2xl font-bold text-gray-700 mb-4">Weather Alerts</h2>
+        <div id="alerts-container" class="bg-white rounded-lg shadow-lg p-4 max-h-64 overflow-y-auto">
+            <!-- Alerts will be dynamically inserted here -->
+        </div>
+    </div>
+</div>
+
+<style>
+/* Custom Styles */
+.container {
+    background: linear-gradient(135deg, #e0f7fa, #e1bee7);
+    border-radius: 0.75rem;
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #374151;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+#custom-city {
+    font-size: 1rem;
+    color: #374151;
+}
+
+#search-error {
+    color: #e57373;
+}
+
+/* Metro Buttons */
+
+
+
+
+/* Weather Display Section */
+#weather-display {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+#selected-city {
+    color: #374151;
+}
+
+.weather-detail {
+    background: #fafafa;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.weather-detail:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: #f3e5f5;
+}
+
+.weather-detail h3 {
+    color: #5e35b1;
+}
+
+.weather-detail p {
+    color: #374151;
+}
+
+/* Alerts Section */
+#alerts-container {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert {
+    animation: slideIn 0.5s ease-out;
+    background-color: #ffebee;
+    color: #c62828;
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Loading Spinner */
+#loading-spinner .animate-spin {
+    border-color: #4db6ac transparent #4db6ac transparent;
+}
+</style>
+
+{% endblock %}
