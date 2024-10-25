@@ -5,13 +5,10 @@ The **Real-Time Weather Monitoring System** is designed to provide users with up
 
 ### Key Functionalities
 - **Real-Time Data Retrieval**: The system polls the OpenWeatherMap API at configurable intervals to fetch the latest weather data for six key cities: Delhi, Mumbai, Chennai, Bangalore, Kolkata, and Hyderabad. This ensures that users always have access to the most recent information.
-  
 - **Data Processing and Analysis**: Upon receiving weather updates, the system performs several processing tasks, including:
-  - **Temperature Conversion**: The application converts temperature values from Kelvin to Celsius (or Fahrenheit), allowing for easier interpretation by users.
-  - **Daily Weather Aggregates**: The system aggregates data daily to compute key metrics such as average, maximum, and minimum temperatures. It also determines the dominant weather condition based on the frequency of reported conditions throughout the day.
-
+- **Temperature Conversion**: The application converts temperature values from Kelvin to Celsius (or Fahrenheit), allowing for easier interpretation by users.
+- **Daily Weather Aggregates**: The system aggregates data daily to compute key metrics such as average, maximum, and minimum temperatures. It also determines the dominant weather condition based on the frequency of reported conditions throughout the day.
 - **User-Configurable Alerts**: Users can define thresholds for temperature and specific weather conditions (e.g., alerts for extreme heat). The system continuously monitors the latest weather data and triggers alerts when these thresholds are breached, ensuring that users are informed of significant weather changes.
-
 - **Visualizations**: The application provides intuitive visualizations to help users understand daily weather summaries, historical trends, and any alerts triggered by severe weather conditions. These visual representations aid in quickly grasping complex data and trends.
 
 ### Significance
@@ -28,11 +25,9 @@ To run this application, you'll need:
 - **API Key**: Sign up for a free account at [OpenWeatherMap](https://openweathermap.org/) to obtain your API key.
 
 ### Installation
- **Clone the repository**:
+**Clone the repository**:
   git clone https://github.com/Munitejasree06/weather-monitoring.git
-
- **Run the application** :
-
+**Run the application** :
 python app.py
 
 ### Usage
