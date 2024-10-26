@@ -16,7 +16,7 @@ The Real-Time Weather Monitoring System serves as an essential tool for both ind
 
 Overall, this project aims to combine data science and real-time processing to deliver a robust and user-friendly weather monitoring solution, ultimately contributing to improved safety and convenience in daily life.
 
-## Getting Started
+## Getting Started..
 
 ### Prerequisites
 To run this application, you'll need:
