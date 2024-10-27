@@ -45,3 +45,17 @@ The application provides several visualizations, including:
 
 ### Contributing
 Contributions are welcome! Please feel free to submit issues or pull requests.
+
+
+## Outputs
+**output1**
+![output1](https://github.com/user-attachments/assets/fd2fa5cb-11ee-4168-af68-b259d6e122c8)
+
+**Outupu2**
+![output2](https://github.com/user-attachments/assets/10204486-5e43-4b04-94b5-0f4a75b81cc4)
+
+**Output3**
+![output4](https://github.com/user-attachments/assets/8abfbb93-56a4-4abb-90d5-8f0ea0f0f825)
+
+
+
