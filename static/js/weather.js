@@ -1,8 +1,5 @@
 //weather.js
 let weatherData = {};
-
-
-
 function updateWeather() {
     fetch('/api/weather')
         .then(response => response.json())
@@ -27,7 +24,6 @@ function searchCustomCity() {
         return;
     }
     
-    // Show loading spinner
     loadingSpinner.classList.remove('hidden');
     errorDiv.classList.add('hidden');
     
@@ -126,7 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Initial weather update
     updateWeather();
 });
 
