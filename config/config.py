@@ -1,6 +1,7 @@
 class Config:
     OPENWEATHER_API_KEY = "c85482eb18cfead5d7ad88036a34e328"
     CITIES = {
+        
         'Delhi': {'lat': 28.6139, 'lon': 77.2090},
         'Mumbai': {'lat': 19.0760, 'lon': 72.8777},
         'Chennai': {'lat': 13.0827, 'lon': 80.2707},
@@ -12,4 +13,5 @@ class Config:
     ALERT_THRESHOLDS = {
         'temperature': 35,
         'consecutive_alerts': 2,
+        
     }
